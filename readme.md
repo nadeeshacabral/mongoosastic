@@ -10,7 +10,7 @@ points in the searches and even highlight matches. For these reasons,
 elastic search was a perfect fit and hence this project. 
 
 ## Current Version
-The current version is ``0.2.1``
+The current version is ``0.2.3``
 
 ## Installation
 
@@ -122,7 +122,14 @@ stream.on('error', function(err){
   console.log(err);
 });
 ```
-One caveat... this is kinda slow for now. Use with care.
+
+You can also synchronize a subset of documents based on a query!
+
+```javascript
+var stream = Book.synchronize({author: 'Arthur C. Clarke'})
+```
+
+One caveat... synchronization is kinda slow for now. Use with care.
 
 ### Per Field Options
 Schemas can be configured to have special options per field. These match

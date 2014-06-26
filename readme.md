@@ -129,6 +129,14 @@ You can also synchronize a subset of documents based on a query!
 var stream = Book.synchronize({author: 'Arthur C. Clarke'})
 ```
 
+If your elasticsearch server does not accept too many concurrent requests, or if you want to take things slow for some reason, you can specify a delay (in microseconds) to have a delay between indexing two documents.
+
+```javascript
+var stream = Book.synchronize({author: 'Arthur C. Clarke'}, 1000)
+```
+
+The above example will make the matching books be indexed one per second.
+
 One caveat... synchronization is kinda slow for now. Use with care.
 
 ### Per Field Options
